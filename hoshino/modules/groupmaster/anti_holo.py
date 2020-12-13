@@ -47,13 +47,13 @@
 # (全文完)
 
 SB_HOLO = '''
-Holo ホロ 木口 术口
-时乃空 ときのそら Tokino Sora 空妈
+Hololive ホロ 木口 术口
+时乃空 ときのそら Tokino 空妈
 萝卜子 ロボ子さん Roboko 大根子
 樱巫女 さくらみこ Sakura Miko 樱火龙 elite工厂厂长 黄油精英巫女 赌鬼巫女 樱污女
 星街彗星 星街 すいせい Hoshimati Suisei 星姐 阿星 彗彗 suisui 有点神经病的蓝发大姐姐 有点大姐姐的蓝发神经病
 夜空梅露 夜空メル Yozora Mel 梅露 梅球王 Banpire 清楚系天才美少女吸血鬼
-夏色祭 夏色まつり Natsuiro Matsuri 马自立 祭妹 夏哥 夏半首
+夏色祭 まつり Natsuiro Matsuri 马自立 祭妹 夏哥 夏半首
 赤井心 赤井はあと Akai Haato 心心 心大人 はぁちゃま 哈恰玛 哈恰嘛
 亚绮 罗森塔尔 アキ ローゼンタール Aki Rosenthal akirose 李姐 力速双A弱精灵
 白上吹雪 白上フブキ Shirakami Fubuki 🌽 fbk 小狐狸 屑狐狸 喵喵狐 debuki 玉米人 赫鲁晓狐 工具狐
@@ -71,8 +71,8 @@ Holo ホロ 木口 术口
 不知火芙蕾雅 不知火フレア Shiranui Flare 芙蕾雅 芙碳 阿火 ぬいぬい nuinui フーたん
 白银诺艾尔 白銀ノエル Shirogane Noel 
 宝钟 玛琳 宝鐘マリン Houshou Marine 无船承运人 山贼
-天音彼方 天音かなた Amane Kanata 彼方碳 かなたん PP天使 天妈 音妹 天音 汤达人 天音腾格尔
-桐生 可可 ココ Kiryū Kiryuu Coco 🐉 蝗 虫皇 龙皇 憨憨龙 ass龙 宝批龙 西成女王
+天音彼方 天音かなた Amane Kanata 彼方碳 かなたん PP天使 天妈 音妹 天音 天音腾格尔
+桐生可可 桐生 ココ Kiryū Kiryuu Coco 🐉 虫皇 龙皇 憨憨龙 ass龙 宝批龙 西成女王
 角卷绵芽 角巻わため Tsunomaki Watame wtm 毛球 顶顶羊 咚咚羊 畜生羊 木口锤石
 常暗永远 常闇トワ Tokoyami Towa 永远大人 トワ様
 姬森璐娜 姫森 ルーナ Himemori Luuna 璐娜 英语教师
@@ -82,12 +82,6 @@ Holo ホロ 木口 术口
 魔乃阿萝耶 魔乃アロエ Mano Aloe 魔乃 阿萝耶
 尾丸波尔卡 尾丸ポルカ Omaru Polka 特质系西索 虚拟关羽
 AZKi AZiK
-夜雾 Yogiri 夜哥 夜老大 饿霸 带饿人 夜妈妈
-希薇娅 Civia 小话唠 希希 cici
-黑桃影 黒桃影 Spade Echo 小影 蜜桃壁 回音铲 涩桃
-朵莉丝 Doris
-阿媂娅 Artia
-罗莎琳 Rosalyn
 Ayunda Risu 栗鼠 印尼面包狗 猫狗的女儿
 Moona Hoshinova
 Airani Iofifteen
@@ -98,6 +92,7 @@ Airani Iofifteen
 华生 阿米莉亚 Watson Amelia ワトソン アメリア 艾米
 友人A YuujinA
 谷乡元昭 YAGOO 谷郷元昭 Tanigou Motoaki
+斯哈斯哈
 '''.split()
 # 复制完了 快吐了
 
@@ -110,7 +105,7 @@ sv = Service('anti-holo', manage_priv=priv.SUPERUSER)
 
 @sv.on_keyword(SB_HOLO)
 async def anti_holo(bot: HoshinoBot, ev: CQEvent):
-    priv.set_block_user(ev.user_id, timedelta(minutes=5))
-    await util.silence(ev, 5 * 60, skip_su=False)
+    priv.set_block_user(ev.user_id, timedelta(minutes=1))
+    await util.silence(ev, 60, skip_su=False)
     await bot.send(ev, HAHAHA_VTB_TIANGOU.cqcode)
     await bot.delete_msg(self_id=ev.self_id, message_id=ev.message_id)
